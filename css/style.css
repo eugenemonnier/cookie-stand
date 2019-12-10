@@ -1,0 +1,70 @@
+body {
+  background-color: #b2663b;
+}
+h3 {
+  font-family: 'Rancho', cursive;
+  font-size: 40px;
+  color: #2f2b20;
+  margin: 15px 15px 0px 10px;
+}
+img {
+  width: 285px;
+  /* if I can get the image cut out do box-shadow on it; */
+  /* box-shadow: 0px 0px 10px 2px; */
+}
+.logo-with-title {
+  margin: 10px auto;
+  width: 400px;
+  padding: 20px 50px;
+  border: 12px #433834 solid;
+  border-radius: 120px;
+  text-align: center;
+  font-weight: bolder;
+  color: #433834;
+  background-color: #b0978d;
+  box-shadow: inset 0px 0px 6px 3px #000000, 0px 0px 10px 2px #000000;
+  font-family: 'Rancho', cursive;
+  font-size: 50px;
+  text-shadow: -1px -1px 2px #000000,
+    1px 1px 2px #000000,
+    -1px 1px 2px #000000,
+    1px -1px 2px #000000;
+  letter-spacing: 4px;
+}
+#locations-information h2 {
+  font-family: 'Rancho', cursive;
+  font-size: 30px;
+  color: #2f2b20;
+  margin: 15px 0px 5px 10px;
+}
+#locations-information li {
+  font-family: Helvetica, sans-serif;
+  list-style: none;
+  margin: 0px 0px 0px 30px;
+}
+.cards {
+  background-color: #b0978d;
+  border-radius: 15px;
+  width: 200px;
+  padding: 1px 0px 15px ;
+  margin: 0px 0px 20px 15px;
+}
+#main-locations li {
+  font-family: Helvetica, sans-serif;
+  list-style: none;
+  margin: 0px 10px;  
+}
+.locations {
+  float: right;
+  text-align: right;
+}
+.we-so-fancy {
+  float: left;
+  text-align: left;
+  width: 150px;
+  text-align: center;
+}
+.we-so-fancy img {
+  margin: 15px auto 5px;
+  width: 100px;
+}
