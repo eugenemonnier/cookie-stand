@@ -25,11 +25,12 @@ img {
     1px -1px 2px #000000;
   letter-spacing: 4px;
 }
-#locations-information h2 {
+.table-city {
   font-family: 'Rancho', cursive;
   font-size: 30px;
   color: #2f2b20;
-  margin: 15px 0px 5px 10px;
+  padding: 15px 5px 15px 5px;
+  text-align: right;
 }
 #locations-information li {
   font-family: Helvetica, sans-serif;
@@ -42,4 +43,12 @@ img {
   width: 200px;
   padding: 1px 0px 15px ;
   margin: 0px 0px 20px 15px;
+}
+table {
+  border: 1px solid black;
+}
+td {
+  border: 1px solid black;
+  padding: 0px 5px;
+  text-align: center;
 }

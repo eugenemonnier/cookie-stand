@@ -93,7 +93,8 @@ if(window.location.pathname.endsWith('sales.html')) {
     var newRow = document.createElement('tr');
     locationHolder.appendChild(newRow);
     var newHeader = document.createElement('td');
-    newHeader.className += 'font-effect-splintered';
+    newHeader.className += 'font-effect-splintered table-city';
+    // newHeader.className += 'table-city';
     newHeader.textContent = cookieStand[i].location;
     locationHolder.appendChild(newHeader);
     // var newUl = document.createElement('ul');
@@ -103,7 +104,7 @@ if(window.location.pathname.endsWith('sales.html')) {
       this.hourlyCookie = cookieStand[i].cookieGen(counter);
       this.totalCookie = this.totalCookie + this.hourlyCookie;
       var newLi = document.createElement('td');
-      newLi.textContent = `${this.hourlyCookie} cookies`;
+      newLi.textContent = `${this.hourlyCookie}`;
       locationHolder.appendChild(newLi);
     }
     // Appends total number of cookies for that location
