@@ -2,9 +2,20 @@ body {
   background-color: #b2663b;
 }
 img {
-  width: 285px;
-  /* if I can get the image cut out do box-shadow on it; */
-  /* box-shadow: 0px 0px 10px 2px; */
+  width: 300px;
+}
+h1{
+  text-align: center;
+  font-weight: bolder;
+  color: #433834;
+  font-family: 'Rancho', cursive;
+  font-size: 50px;
+  text-shadow: 
+    -1px -1px 4px #000000,
+    1px 1px 4px #000000,
+    -1px 1px 4px #000000,
+    1px -1px 4px #000000;
+  letter-spacing: 4px;
 }
 .logo-with-title {
   margin: 10px auto;
@@ -12,17 +23,17 @@ img {
   padding: 20px 50px;
   border: 12px #433834 solid;
   border-radius: 120px;
+  background-color: #b0978d;
+  box-shadow: inset 0px 0px 6px 3px #000000, 0px 0px 10px 2px #000000;
   text-align: center;
   font-weight: bolder;
   color: #433834;
-  background-color: #b0978d;
-  box-shadow: inset 0px 0px 6px 3px #000000, 0px 0px 10px 2px #000000;
   font-family: 'Rancho', cursive;
   font-size: 50px;
-  text-shadow: -1px -1px 2px #000000,
-    1px 1px 2px #000000,
-    -1px 1px 2px #000000,
-    1px -1px 2px #000000;
+  text-shadow: -1px -1px 4px #000000,
+    1px 1px 4px #000000,
+    -1px 1px 4px #000000,
+    1px -1px 4px #000000;
   letter-spacing: 4px;
 }
 .table-city {
@@ -40,9 +51,9 @@ img {
 .cards {
   background-color: #b0978d;
   border-radius: 15px;
-  width: 200px;
-  padding: 1px 0px 15px ;
-  margin: 0px 0px 20px 15px;
+  width: fit-content;
+  padding: 10px;
+  margin: 50px auto;
 }
 table {
   border: 1px solid black;
