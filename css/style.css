@@ -1,6 +1,12 @@
 body {
   background-color: #b2663b;
 }
+h3 {
+  font-family: 'Rancho', cursive;
+  font-size: 40px;
+  color: #2f2b20;
+  margin: 15px 15px 0px 10px;
+}
 img {
   width: 285px;
   /* if I can get the image cut out do box-shadow on it; */
@@ -42,4 +48,23 @@ img {
   width: 200px;
   padding: 1px 0px 15px ;
   margin: 0px 0px 20px 15px;
+}
+#main-locations li {
+  font-family: Helvetica, sans-serif;
+  list-style: none;
+  margin: 0px 10px;  
+}
+.locations {
+  float: right;
+  text-align: right;
+}
+.we-so-fancy {
+  float: left;
+  text-align: left;
+  width: 150px;
+  text-align: center;
+}
+.we-so-fancy img {
+  margin: 15px auto 5px;
+  width: 100px;
 }

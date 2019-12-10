@@ -16,11 +16,8 @@ var cookieStand = [
     minCust: 23,
     maxCust: 65,
     avgCookie: 6.3,
-    custGen: function() {
-      return Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-    },
     cookieGen: function() {
-      return Math.round(this.custGen() * this.avgCookie);
+      return Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
     },
   },
   {
@@ -28,11 +25,8 @@ var cookieStand = [
     minCust: 3,
     maxCust: 24,
     avgCookie: 1.2,
-    custGen: function() {
-      return Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-    },
     cookieGen: function() {
-      return Math.round(this.custGen() * this.avgCookie);
+      return Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
     },
   },
   {
@@ -40,11 +34,8 @@ var cookieStand = [
     minCust: 11,
     maxCust: 38,
     avgCookie: 3.7,
-    custGen: function() {
-      return Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-    },
     cookieGen: function() {
-      return Math.round(this.custGen() * this.avgCookie);
+      return Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
     },
   },
   {
@@ -52,11 +43,8 @@ var cookieStand = [
     minCust: 20,
     maxCust: 38,
     avgCookie: 2.3,
-    custGen: function() {
-      return Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-    },
     cookieGen: function() {
-      return Math.round(this.custGen() * this.avgCookie);
+      return Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
     },
   },
   {
@@ -64,11 +52,8 @@ var cookieStand = [
     minCust: 2,
     maxCust: 16,
     avgCookie: 4.6,
-    custGen: function() {
-      return Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-    },
     cookieGen: function() {
-      return Math.round(this.custGen() * this.avgCookie);
+      return Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
     },
   }
 ];
@@ -102,8 +87,7 @@ if(window.location.pathname.endsWith('sales.html')) {
   // Creates list of locations for main page
   for(i = 0; i < cookieStand.length; i++) {
     var newLine = document.createElement('li');
-    newLine.className += 'font-effect-splintered';
-    newLine.textContent = `${cookieStand[i].location}: ${hoursOfDay[0]} - ${hoursOfDay.length - 1}`;
+    newLine.textContent = `${cookieStand[i].location}: ${hoursOfDay[0]} - ${hoursOfDay[12]}`;
     mainLocationsHolder.appendChild(newLine);
   }
 }
