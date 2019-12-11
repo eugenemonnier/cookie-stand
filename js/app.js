@@ -114,12 +114,16 @@ if(window.location.pathname.endsWith('sales.html')) {
     locationHolder.appendChild(finalLi);
   }
   var completeTotal = 0;
+  var totalTd = document.createElement('td');
+  totalTd.textContent = 'TOTAL';
+  totalHolder.appendChild(totalTd);
+  totalTd.className += 'font-effect-splintered table-city';
   for(i = 0; i < hoursOfDay.length; i++) {
     var hourlyTotal = 0;
     for(counter = 0; counter < cookieStand.length; counter++) {
       hourlyTotal = hourlyTotal + cookieStand[counter].hourlyCookie[i];
     }
-    var totalTd = document.createElement('td');
+    totalTd = document.createElement('td');
     totalTd.textContent = hourlyTotal;
     totalHolder.appendChild(totalTd);
     completeTotal = completeTotal + hourlyTotal;

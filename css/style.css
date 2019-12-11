@@ -36,13 +36,6 @@ h1{
     1px -1px 4px #000000;
   letter-spacing: 4px;
 }
-.table-city {
-  font-family: 'Rancho', cursive;
-  font-size: 30px;
-  color: #2f2b20;
-  padding: 15px 5px 15px 5px;
-  text-align: right;
-}
 #locations-information li {
   font-family: Helvetica, sans-serif;
   list-style: none;
@@ -62,4 +55,15 @@ td {
   border: 1px solid black;
   padding: 0px 5px;
   text-align: center;
+}
+#total-cookies td:not(:first-child) {
+  background-color: #c7b2aa;
+}
+.table-city {
+  font-family: 'Rancho', cursive;
+  font-size: 30px;
+  color: #2f2b20;
+  padding: 15px 5px 15px 5px;
+  text-align: right;
+  background-color: #b0978d;
 }
