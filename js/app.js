@@ -49,30 +49,26 @@ NewPlace.prototype.employeeGen = function() {
 // check whether in index.html or sales.html
 if(window.location.pathname.endsWith('sales.html')) {
   // Create list of locations
+  // debugger;
   for(var i = 0; i < cookieStand.length; i++) {
     this.totalCookie = 0;
     var newRow = document.createElement('tr');
     locationHolder.appendChild(newRow);
-    employeeHolder.appendChild(newRow);
     var newHeader = document.createElement('td');
     // newHeader.className += 'table-city';
     newHeader.className += 'font-effect-splintered table-city';
     newHeader.textContent = cookieStand[i].location;
     locationHolder.appendChild(newHeader);
-    employeeHolder.appendChild(newHeader);
     // var newUl = document.createElement('ul');
     // locationHolder.appendChild(newUl);
     // Under each location adds cookie sales for each hour
     for(var counter = 0; counter < hoursOfDay.length; counter++) {
       this.hourlyCookie = cookieStand[i].cookieGen(counter);
       this.totalCookie = this.totalCookie + this.hourlyCookie;
+      this.employeeCount = cookieStand[i].employeeGen(counter);
       var newLi = document.createElement('td');
       newLi.textContent = `${this.hourlyCookie}`;
       locationHolder.appendChild(newLi);
-      //Create Employee Table
-      this.employeeCount = cookieStand[i].employeeGen(counter);
-      newLi.textContent = `${this.employeeCount}`;
-      employeeHolder.appendChild(newLi);
     }
     // Appends total number of cookies for that location
     var finalLi = document.createElement('td');
@@ -100,8 +96,24 @@ if(window.location.pathname.endsWith('sales.html')) {
   totalHolder.appendChild(totalTd);
 
   // Employees Needed Per Hour Table
-
-
+  for(i = 0; i < cookieStand.length; i++) {
+    this.totalCookie = 0;
+    newRow = document.createElement('tr');
+    employeeHolder.appendChild(newRow);
+    newHeader = document.createElement('td');
+    // newHeader.className += 'table-city';
+    newHeader.className += 'font-effect-splintered table-city';
+    newHeader.textContent = cookieStand[i].location;
+    employeeHolder.appendChild(newHeader);
+    // var newUl = document.createElement('ul');
+    // locationHolder.appendChild(newUl);
+    // Under each location adds cookie sales for each hour
+    for(counter = 0; counter < hoursOfDay.length; counter++) {
+      newLi = document.createElement('td');
+      newLi.textContent = cookieStand[i].employeeCount[counter];
+      employeeHolder.appendChild(newLi);
+    }
+  }
   // Creates list of locations for main page
 } else if (window.location.pathname.endsWith('index.html')) {
   for(i = 0; i < cookieStand.length; i++) {
