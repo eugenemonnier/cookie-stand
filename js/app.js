@@ -2,6 +2,7 @@
 
 // global variables
 var hoursOfDay = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm'];
+var hourlyAdjust = [0.5, 0.75, 1.0, 0.6, 0.8, 1.0, 0.7, 0.4, 0.6, 0.9, 0.7, 0.5, 0.3, 0.4, 0.6];
 
 // targets Element ID to be manipulated
 var locationHolder = document.getElementById('locations-information');
@@ -35,10 +36,9 @@ addLocation('LIMA', 2, 16, 4.6);
 addLocation('PORTLAND', 23, 52, 7.4);
 
 NewPlace.prototype.cookieGen = function() {
-  this.hourlyCookie[counter] = Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
+  this.hourlyCookie[counter] = Math.round(Math.round(Math.random() * (hourlyAdjust[counter] * (this.maxCust - this.minCust)) + this.minCust) * this.avgCookie);
   return (this.hourlyCookie[counter]);
 };
-
 
 // check whether in index.html or sales.html
 if(window.location.pathname.endsWith('sales.html')) {
