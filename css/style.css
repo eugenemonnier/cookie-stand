@@ -1,6 +1,12 @@
 body {
   background-color: #b2663b;
 }
+h3 {
+  font-family: 'Rancho', cursive;
+  font-size: 40px;
+  color: #2f2b20;
+  margin: 15px 15px 0px 10px;
+}
 img {
   width: 300px;
 }

@@ -10,53 +10,6 @@ var totalHolder = document.getElementById('total-cookies');
 
 // cookieStand object array
 //contains functions for calculating a random num of customers and gernerating a number of cookies based on that random number
-// var cookieStand = [
-// {
-//   location: 'SEATTLE',
-//   minCust: 23,
-//   maxCust: 65,
-//   avgCookie: 6.3,
-//   cookieGen: function() {
-//     return Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
-//   },
-// },
-// {
-//   location: 'TOKYO',
-//   minCust: 3,
-//   maxCust: 24,
-//   avgCookie: 1.2,
-//   cookieGen: function() {
-//     return Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
-//   },
-// },
-// {
-//   location: 'DUBAI',
-//   minCust: 11,
-//   maxCust: 38,
-//   avgCookie: 3.7,
-//   cookieGen: function() {
-//     return Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
-//   },
-// },
-// {
-//   location: 'PARIS',
-//   minCust: 20,
-//   maxCust: 38,
-//   avgCookie: 2.3,
-//   cookieGen: function() {
-//     return Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
-//   },
-// },
-// {
-//   location: 'LIMA',
-//   minCust: 2,
-//   maxCust: 16,
-//   avgCookie: 4.6,
-//   cookieGen: function() {
-//     return Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
-//   },
-// }
-// ];
 
 var cookieStand = [];
 
@@ -85,6 +38,7 @@ NewPlace.prototype.cookieGen = function() {
   this.hourlyCookie[counter] = Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
   return (this.hourlyCookie[counter]);
 };
+
 
 // check whether in index.html or sales.html
 if(window.location.pathname.endsWith('sales.html')) {
