@@ -8,7 +8,26 @@ h3 {
   margin: 15px 15px 0px 10px;
 }
 img {
-  width: 285px;
+  width: 300px;
+}
+h1{
+  text-align: center;
+  font-weight: bolder;
+  color: #433834;
+  font-family: 'Rancho', cursive;
+  font-size: 50px;
+  text-shadow: 
+    -1px -1px 4px #000000,
+    1px 1px 4px #000000,
+    -1px 1px 4px #000000,
+    1px -1px 4px #000000;
+  letter-spacing: 4px;
+}
+h3 {
+  font-family: 'Rancho', cursive;
+  font-size: 40px;
+  color: #2f2b20;
+  margin: 15px 15px 0px 10px;
 }
 .logo-with-title {
   margin: 10px auto;
@@ -16,21 +35,18 @@ img {
   padding: 20px 50px;
   border: 12px #433834 solid;
   border-radius: 120px;
+  background-color: #b0978d;
+  box-shadow: inset 0px 0px 6px 3px #000000, 0px 0px 10px 2px #000000;
   text-align: center;
   font-weight: bolder;
   color: #433834;
-  background-color: #b0978d;
-  box-shadow: inset 0px 0px 6px 3px #000000, 0px 0px 10px 2px #000000;
   font-family: 'Rancho', cursive;
   font-size: 50px;
-  text-shadow: 0px 0px 4px #000000;
+  text-shadow: -1px -1px 4px #000000,
+    1px 1px 4px #000000,
+    -1px 1px 4px #000000,
+    1px -1px 4px #000000;
   letter-spacing: 4px;
-}
-#locations-information h2 {
-  font-family: 'Rancho', cursive;
-  font-size: 30px;
-  color: #2f2b20;
-  margin: 15px 0px 5px 10px;
 }
 #locations-information li {
   font-family: Helvetica, sans-serif;
@@ -40,9 +56,28 @@ img {
 .cards {
   background-color: #b0978d;
   border-radius: 15px;
-  width: 200px;
-  padding: 1px 0px 15px ;
-  margin: 0px 0px 20px 15px;
+  width: fit-content;
+  padding: 10px;
+  margin: 50px auto;
+}
+table {
+  border: 1px solid black;
+}
+td {
+  border: 1px solid black;
+  padding: 0px 5px;
+  text-align: center;
+}
+#total-cookies td:not(:first-child) {
+  background-color: #c7b2aa;
+}
+.table-city {
+  font-family: 'Rancho', cursive;
+  font-size: 30px;
+  color: #2f2b20;
+  padding: 15px 5px 15px 5px;
+  text-align: right;
+  background-color: #b0978d;
 }
 #main-locations li {
   font-family: Helvetica, sans-serif;
