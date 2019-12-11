@@ -6,6 +6,7 @@ var hoursOfDay = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2p
 // targets Element ID to be manipulated
 var locationHolder = document.getElementById('locations-information');
 var mainLocationsHolder = document.getElementById('main-locations');
+var totalHolder = document.getElementById('total-cookies');
 
 // cookieStand object array
 //contains functions for calculating a random num of customers and gernerating a number of cookies based on that random number
@@ -112,6 +113,20 @@ if(window.location.pathname.endsWith('sales.html')) {
     finalLi.textContent = `${this.totalCookie}`;
     locationHolder.appendChild(finalLi);
   }
+  var completeTotal = 0;
+  for(i = 0; i < hoursOfDay.length; i++) {
+    var hourlyTotal = 0;
+    for(counter = 0; counter < cookieStand.length; counter++) {
+      hourlyTotal = hourlyTotal + cookieStand[counter].hourlyCookie[i];
+    }
+    var totalTd = document.createElement('td');
+    totalTd.textContent = hourlyTotal;
+    totalHolder.appendChild(totalTd);
+    completeTotal = completeTotal + hourlyTotal;
+  }
+  totalTd = document.createElement('td');
+  totalTd.textContent = completeTotal;
+  totalHolder.appendChild(totalTd);
 } else if (window.location.pathname.endsWith('index.html')) {
   // Creates list of locations for main page
   for(i = 0; i < cookieStand.length; i++) {
