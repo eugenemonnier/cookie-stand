@@ -2,11 +2,13 @@
 
 // global variables
 var hoursOfDay = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm'];
+var hourlyAdjust = [0.5, 0.75, 1.0, 0.6, 0.8, 1.0, 0.7, 0.4, 0.6, 0.9, 0.7, 0.5, 0.3, 0.4, 0.6];
 
 // targets Element ID to be manipulated
 var locationHolder = document.getElementById('locations-information');
 var mainLocationsHolder = document.getElementById('main-locations');
 var totalHolder = document.getElementById('total-cookies');
+var employeeHolder = document.getElementById('locations-employees');
 
 // cookieStand object array
 //contains functions for calculating a random num of customers and gernerating a number of cookies based on that random number
@@ -20,6 +22,7 @@ function NewPlace(location,minCust,maxCust,avgCookie) {
   this.avgCookie = avgCookie;
   this.hourlyCookie = [];
   this.totalCookie = 0;
+  this.employeeCount = [];
 }
 // takes in arguments to create new object and add it to cookieStand array
 function addLocation(location,minCust,maxCust,avgCookie) {
@@ -35,10 +38,13 @@ addLocation('LIMA', 2, 16, 4.6);
 addLocation('PORTLAND', 23, 52, 7.4);
 
 NewPlace.prototype.cookieGen = function() {
-  this.hourlyCookie[counter] = Math.round(Math.round(Math.random() * (this.maxCust - this.minCust) + this.minCust) * this.avgCookie);
+  this.hourlyCookie[counter] = Math.round(Math.round(Math.random() * (hourlyAdjust[counter] * (this.maxCust - this.minCust)) + this.minCust) * this.avgCookie);
   return (this.hourlyCookie[counter]);
 };
 
+NewPlace.prototype.employeeGen = function() {
+  this.employeeCount[counter] = Math.ceil(this.hourlyCookie[counter] / 20);
+};
 
 // check whether in index.html or sales.html
 if(window.location.pathname.endsWith('sales.html')) {
@@ -48,16 +54,15 @@ if(window.location.pathname.endsWith('sales.html')) {
     var newRow = document.createElement('tr');
     locationHolder.appendChild(newRow);
     var newHeader = document.createElement('td');
-    newHeader.className += 'font-effect-splintered table-city';
     // newHeader.className += 'table-city';
+    newHeader.className += 'font-effect-splintered table-city';
     newHeader.textContent = cookieStand[i].location;
     locationHolder.appendChild(newHeader);
-    // var newUl = document.createElement('ul');
-    // locationHolder.appendChild(newUl);
     // Under each location adds cookie sales for each hour
     for(var counter = 0; counter < hoursOfDay.length; counter++) {
       this.hourlyCookie = cookieStand[i].cookieGen(counter);
       this.totalCookie = this.totalCookie + this.hourlyCookie;
+      this.employeeCount = cookieStand[i].employeeGen(counter);
       var newLi = document.createElement('td');
       newLi.textContent = `${this.hourlyCookie}`;
       locationHolder.appendChild(newLi);
@@ -67,6 +72,7 @@ if(window.location.pathname.endsWith('sales.html')) {
     finalLi.textContent = `${this.totalCookie}`;
     locationHolder.appendChild(finalLi);
   }
+  // Last row of totals
   var completeTotal = 0;
   var totalTd = document.createElement('td');
   totalTd.textContent = 'TOTAL';
@@ -85,8 +91,26 @@ if(window.location.pathname.endsWith('sales.html')) {
   totalTd = document.createElement('td');
   totalTd.textContent = completeTotal;
   totalHolder.appendChild(totalTd);
-} else if (window.location.pathname.endsWith('index.html')) {
+
+  // Employees Needed Per Hour Table
+  for(i = 0; i < cookieStand.length; i++) {
+    this.totalCookie = 0;
+    newRow = document.createElement('tr');
+    employeeHolder.appendChild(newRow);
+    newHeader = document.createElement('td');
+    // newHeader.className += 'table-city';
+    newHeader.className += 'font-effect-splintered table-city';
+    newHeader.textContent = cookieStand[i].location;
+    employeeHolder.appendChild(newHeader);
+    // Under each location adds cookie sales for each hour
+    for(counter = 0; counter < hoursOfDay.length; counter++) {
+      newLi = document.createElement('td');
+      newLi.textContent = cookieStand[i].employeeCount[counter];
+      employeeHolder.appendChild(newLi);
+    }
+  }
   // Creates list of locations for main page
+} else if (window.location.pathname.endsWith('index.html')) {
   for(i = 0; i < cookieStand.length; i++) {
     var newLine = document.createElement('li');
     newLine.textContent = `${cookieStand[i].location}: ${hoursOfDay[0]} - ${hoursOfDay[12]}`;
