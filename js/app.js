@@ -11,7 +11,7 @@ var totalHolder = document.getElementById('total-cookies');
 var employeeHolder = document.getElementById('locations-employees');
 
 // cookieStand object array
-//contains functions for calculating a random num of customers and gernerating a number of cookies based on that random number
+// contains functions for calculating a random num of customers and gernerating a number of cookies based on that random number
 
 var cookieStand = [];
 
@@ -30,6 +30,7 @@ function addLocation(location,minCust,maxCust,avgCookie) {
   cookieStand.push(newLocation);
 }
 
+// Buiilds cookieStand array objects
 addLocation('SEATTLE', 25, 65, 6.3);
 addLocation('TOKYO', 3, 24, 1.2);
 addLocation('DUBAI', 11, 38, 3.7);
@@ -37,11 +38,13 @@ addLocation('PARIS', 20, 38, 2.3);
 addLocation('LIMA', 2, 16, 4.6);
 addLocation('PORTLAND', 23, 52, 7.4);
 
+// Method for generating a random number of cookies per hour
 NewPlace.prototype.cookieGen = function() {
   this.hourlyCookie[counter] = Math.round(Math.round(Math.random() * (hourlyAdjust[counter] * (this.maxCust - this.minCust)) + this.minCust) * this.avgCookie);
-  return (this.hourlyCookie[counter]);
+  return this.hourlyCookie[counter];
 };
 
+// Method to calculate how many employees are needed per hour
 NewPlace.prototype.employeeGen = function() {
   this.employeeCount[counter] = Math.ceil(this.hourlyCookie[counter] / 20);
 };
@@ -54,8 +57,7 @@ if(window.location.pathname.endsWith('sales.html')) {
     var newRow = document.createElement('tr');
     locationHolder.appendChild(newRow);
     var newHeader = document.createElement('td');
-    // newHeader.className += 'table-city';
-    newHeader.className += 'font-effect-splintered table-city';
+    newHeader.className += 'font-effect-distressed-wood table-city';
     newHeader.textContent = cookieStand[i].location;
     locationHolder.appendChild(newHeader);
     // Under each location adds cookie sales for each hour
@@ -77,7 +79,7 @@ if(window.location.pathname.endsWith('sales.html')) {
   var totalTd = document.createElement('td');
   totalTd.textContent = 'TOTAL';
   totalHolder.appendChild(totalTd);
-  totalTd.className += 'font-effect-splintered table-city';
+  totalTd.className += 'font-effect-distressed-wood table-city';
   for(i = 0; i < hoursOfDay.length; i++) {
     var hourlyTotal = 0;
     for(counter = 0; counter < cookieStand.length; counter++) {
@@ -98,8 +100,7 @@ if(window.location.pathname.endsWith('sales.html')) {
     newRow = document.createElement('tr');
     employeeHolder.appendChild(newRow);
     newHeader = document.createElement('td');
-    // newHeader.className += 'table-city';
-    newHeader.className += 'font-effect-splintered table-city';
+    newHeader.className += 'font-effect-distressed-wood table-city';
     newHeader.textContent = cookieStand[i].location;
     employeeHolder.appendChild(newHeader);
     // Under each location adds cookie sales for each hour
@@ -109,6 +110,7 @@ if(window.location.pathname.endsWith('sales.html')) {
       employeeHolder.appendChild(newLi);
     }
   }
+
   // Creates list of locations for main page
 } else if (window.location.pathname.endsWith('index.html')) {
   for(i = 0; i < cookieStand.length; i++) {

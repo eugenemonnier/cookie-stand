@@ -8,11 +8,10 @@ h1{
   font-family: 'Rancho', cursive;
   font-size: 50px;
   text-shadow: 
-    -1px -1px 4px #000000,
-    1px 1px 4px #000000,
-    -1px 1px 4px #000000,
-    1px -1px 4px #000000;
+    3px -1px 0px #000000, 
+    4px 1px 4px #000000;
   letter-spacing: 4px;
+  font-weight: bolder;
 }
 h3 {
   font-family: 'Rancho', cursive;
@@ -36,10 +35,10 @@ img {
   color: #433834;
   font-family: 'Rancho', cursive;
   font-size: 50px;
-  text-shadow: -1px -1px 4px #000000,
+  /* text-shadow: -1px -1px 4px #000000,
     1px 1px 4px #000000,
     -1px 1px 4px #000000,
-    1px -1px 4px #000000;
+    1px -1px 4px #000000; */
   letter-spacing: 4px;
 }
 .cards {
@@ -94,4 +93,7 @@ td {
 .we-so-fancy img {
   margin: 15px auto 5px;
   width: 100px;
+}
+fieldset {
+  border: 1px solid black;
 }

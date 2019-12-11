@@ -7,17 +7,31 @@
   <meta name="google" content="notranslate">
   <meta http-equiv="Content-Language" content="en">
   <link href="css/reset.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Rancho&effect=splintered" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rancho&effect=distressed-wood" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet" type="text/css">
   <title>Salmon Cookies</title>
 </head>
 <body>
   <div class="logo-with-title">
     <img src="img/salmon.png" alt="Salmon Cookies Logo">
-    <h1 class="font-effect-splintered"> SALMON COOKIES</h1>
+    <h1 class="font-effect-distressed-wood"> SALMON COOKIES</h1>
   </div>
+  <div id="reset-tables">
+  <form id="add-location">
+    <fieldset>
+      <legend>Add a new Salmon Cookies location</legend>
+      <label for="location-name">New Location:</label>
+      <input id="location-name" type="text" placeholder="Location Name"/>
+      <label for="max-cust">Max Customers/hr</label>
+      <input id="max-cust" type="number" placeholder="Max # of Customers/Hour" />
+      <label for="min-cust">Min Customers/hr</label>
+      <input id="min-cust" type="number" placeholder="Min # of Customers/Hour" />
+      <label for="avg-cookie-sale">Average # Cookies per Order</label>
+      <input id="avg-cookie-sale" type="number" placeholder="Average # of Cookies/Order" />
+    </fieldset>
+  </form>
   <div class="cards">
-      <h1 class="font-effect-splintered">COOKIE SALES</h1>
+      <h1 class="font-effect-distressed-wood">COOKIE SALES</h1>
     <table>
       <thead>
         <tr>
@@ -45,7 +59,7 @@
     </table>
   </div>
   <div class="cards">
-    <h1 class="font-effect-splintered">MINIMUM EMPLOYEE COUNT</h1>
+    <h1 class="font-effect-distressed-wood">MINIMUM EMPLOYEE COUNT</h1>
       <table>
         <thead>
           <tr>
@@ -68,6 +82,7 @@
         <tbody id="locations-employees"></tbody>
     </table>
   </div>
+</div>
 </body>
 <script src="js/app.js"></script>
 </html>
