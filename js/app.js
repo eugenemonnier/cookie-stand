@@ -49,7 +49,6 @@ NewPlace.prototype.employeeGen = function() {
 // check whether in index.html or sales.html
 if(window.location.pathname.endsWith('sales.html')) {
   // Create list of locations
-  // debugger;
   for(var i = 0; i < cookieStand.length; i++) {
     this.totalCookie = 0;
     var newRow = document.createElement('tr');
@@ -59,8 +58,6 @@ if(window.location.pathname.endsWith('sales.html')) {
     newHeader.className += 'font-effect-splintered table-city';
     newHeader.textContent = cookieStand[i].location;
     locationHolder.appendChild(newHeader);
-    // var newUl = document.createElement('ul');
-    // locationHolder.appendChild(newUl);
     // Under each location adds cookie sales for each hour
     for(var counter = 0; counter < hoursOfDay.length; counter++) {
       this.hourlyCookie = cookieStand[i].cookieGen(counter);
@@ -105,8 +102,6 @@ if(window.location.pathname.endsWith('sales.html')) {
     newHeader.className += 'font-effect-splintered table-city';
     newHeader.textContent = cookieStand[i].location;
     employeeHolder.appendChild(newHeader);
-    // var newUl = document.createElement('ul');
-    // locationHolder.appendChild(newUl);
     // Under each location adds cookie sales for each hour
     for(counter = 0; counter < hoursOfDay.length; counter++) {
       newLi = document.createElement('td');
