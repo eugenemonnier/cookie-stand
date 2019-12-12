@@ -2,8 +2,16 @@
 
 // global variables
 var hoursOfDay = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm'];
-// var hourlyAdjust = [0.5, 0.75, 1.0, 0.6, 0.8, 1.0, 0.7, 0.4, 0.6, 0.9, 0.7, 0.5, 0.3, 0.4, 0.6];
 var currentHourCookie, currentHourAdjust;
+var cookieStand = [];
+
+// Buiilds cookieStand array objects
+addLocation('SEATTLE', 25, 65, 6.3);
+addLocation('TOKYO', 3, 24, 1.2);
+addLocation('DUBAI', 11, 38, 3.7);
+addLocation('PARIS', 20, 38, 2.3);
+addLocation('LIMA', 2, 16, 4.6);
+addLocation('PORTLAND', 23, 52, 7.4);
 
 // targets Element ID to be manipulated
 var locationHolder = document.getElementById('locations-information');
@@ -61,20 +69,13 @@ function newLocationSubmitted(event) {
   document.getElementById('locations-information').innerHTML = '';
   document.getElementById('locations-employees').innerHTML = '';
   document.getElementById('total-cookies').innerHTML = '';
-  buildTables();
+  buildTable();
+  buildTotal();
+  buildEmployeeTable();
 }
 
-var cookieStand = [];
-
-addLocation('SEATTLE', 25, 65, 6.3);
-addLocation('TOKYO', 3, 24, 1.2);
-addLocation('DUBAI', 11, 38, 3.7);
-addLocation('PARIS', 20, 38, 2.3);
-addLocation('LIMA', 2, 16, 4.6);
-addLocation('PORTLAND', 23, 52, 7.4);
-
 // Create list of locations
-function buildTables() {
+function buildTable() {
 
   // NewPlace.prototype.buildTables = function() {
   for(var i = 0; i < cookieStand.length; i++) {
@@ -99,16 +100,17 @@ function buildTables() {
     finalLi.textContent = cookieStand[i].totalCookie;
     locationHolder.appendChild(finalLi);
   }
-
+}
+function buildTotal() {
   // Last row of totals
   var completeTotal = 0;
   var totalTd = document.createElement('td');
   totalTd.textContent = 'TOTAL';
   totalHolder.appendChild(totalTd);
   totalTd.className += 'font-effect-distressed-wood table-city';
-  for(i = 0; i < hoursOfDay.length; i++) {
+  for(var i = 0; i < hoursOfDay.length; i++) {
     var hourlyTotal = 0;
-    for(counter = 0; counter < cookieStand.length; counter++) {
+    for(var counter = 0; counter < cookieStand.length; counter++) {
       hourlyTotal = hourlyTotal + cookieStand[counter].hourlyCookie[i];
     }
     totalTd = document.createElement('td');
@@ -119,21 +121,23 @@ function buildTables() {
   totalTd = document.createElement('td');
   totalTd.textContent = completeTotal;
   totalHolder.appendChild(totalTd);
+}
 
+function buildEmployeeTable () {
   // Employees Needed Per Hour Table
-  for(i = 0; i < cookieStand.length; i++) {
+  for(var i = 0; i < cookieStand.length; i++) {
     cookieStand[i].totalCookie = 0;
-    newRow = document.createElement('tr');
+    var newRow = document.createElement('tr');
     employeeHolder.appendChild(newRow);
-    newHeader = document.createElement('td');
+    var newHeader = document.createElement('td');
     newHeader.className += 'font-effect-distressed-wood table-city';
     newHeader.textContent = cookieStand[i].location;
     employeeHolder.appendChild(newHeader);
     // Under each location adds cookie sales for each hour
-    for(counter = 0; counter < hoursOfDay.length; counter++) {
+    for(var counter = 0; counter < hoursOfDay.length; counter++) {
       currentHourCookie = cookieStand[i].hourlyCookie[counter];
       cookieStand[i].employeeCount = cookieStand[i].employeeGen(counter);
-      newLi = document.createElement('td');
+      var newLi = document.createElement('td');
       newLi.textContent = cookieStand[i].employeeCount[counter];
       employeeHolder.appendChild(newLi);
     }
@@ -142,15 +146,14 @@ function buildTables() {
 
 // check whether in index.html or sales.html
 if(window.location.pathname.endsWith('sales.html')) {
-  // debugger;
-  // cookieStand.buildTables();
-  // Buiilds cookieStand array objects
-
-  buildTables();
+  // Build all tables
+  buildTable();
+  buildTotal();
+  buildEmployeeTable();
 
   // Creates list of locations for main page
 } else if (window.location.pathname.endsWith('index.html')) {
-  for(i = 0; i < cookieStand.length; i++) {
+  for(var i = 0; i < cookieStand.length; i++) {
     var newLine = document.createElement('li');
     newLine.textContent = `${cookieStand[i].location}: ${hoursOfDay[0]} - ${hoursOfDay[12]}`;
     mainLocationsHolder.appendChild(newLine);
