@@ -8,11 +8,10 @@ h1{
   font-family: 'Rancho', cursive;
   font-size: 50px;
   text-shadow: 
-    -1px -1px 4px #000000,
-    1px 1px 4px #000000,
-    -1px 1px 4px #000000,
-    1px -1px 4px #000000;
+    3px -1px 0px #000000, 
+    4px 1px 4px #000000;
   letter-spacing: 4px;
+  font-weight: bolder;
 }
 h3 {
   font-family: 'Rancho', cursive;
@@ -30,16 +29,12 @@ img {
   border: 12px #433834 solid;
   border-radius: 120px;
   background-color: #b0978d;
-  box-shadow: inset 0px 0px 6px 3px #000000, 0px 0px 10px 2px #000000;
+  box-shadow: inset 0px 0px 6px 3px #000000, 0px 4px 6px #000000;
   text-align: center;
   font-weight: bolder;
   color: #433834;
   font-family: 'Rancho', cursive;
   font-size: 50px;
-  text-shadow: -1px -1px 4px #000000,
-    1px 1px 4px #000000,
-    -1px 1px 4px #000000,
-    1px -1px 4px #000000;
   letter-spacing: 4px;
 }
 .cards {
@@ -48,12 +43,14 @@ img {
   width: fit-content;
   padding: 10px;
   margin: 25px auto;
+  box-shadow: 0px 4px 6px #000000;
+  border-bottom: 3px solid #000000;
 }
 .cards h1 {
   margin-bottom: 10px;
 }
 table {
-  border: 1px solid black;
+  border: 1px solid #000000;
 }
 .table-city {
   font-family: 'Rancho', cursive;
@@ -69,7 +66,7 @@ table {
   margin: 0px 0px 0px 30px;
 }
 td {
-  border: 1px solid black;
+  border: 1px solid #000000;
   padding: 0px 5px;
   text-align: center;
 }
@@ -94,4 +91,31 @@ td {
 .we-so-fancy img {
   margin: 15px auto 5px;
   width: 100px;
+}
+fieldset {
+  padding: 5px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  width: fit-content;
+  height: 60px;
+}
+input {
+  padding: 5px 10px;
+  margin: 6px 8px;
+}
+input:focus, input:hover, button:hover {
+  box-shadow: 0px 4px 6px #000000;
+  border-bottom: 3px solid #000000;
+  top: -5px;
+  transition: 0.3s;
+}
+button {
+  margin-left: 20px;
+  margin-right: 10px;
+  height: 30px;
+  width: 80px;
+}
+strong {
+  font-family: 'Rancho', cursive;
+  font-size: medium;
 }
