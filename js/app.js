@@ -60,7 +60,7 @@ function newLocationSubmitted(event) {
   document.getElementById('add-location').reset();
   document.getElementById('locations-information').innerHTML = '';
   document.getElementById('locations-employees').innerHTML = '';
-  
+  document.getElementById('total-cookies').innerHTML = '';
   buildTables();
 }
 
