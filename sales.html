@@ -20,14 +20,15 @@
   <form id="add-location">
     <fieldset>
       <legend>Add a new Salmon Cookies location</legend>
-      <label for="location-name">New Location:</label>
+      <label for="location-name">Location:</label>
       <input id="location-name" type="text" placeholder="Location Name"/>
-      <label for="max-cust">Max Customers/hr</label>
+      <label for="max-cust">Max:</label>
       <input id="max-cust" type="number" placeholder="Max # of Customers/Hour" />
-      <label for="min-cust">Min Customers/hr</label>
+      <label for="min-cust">Min:</label>
       <input id="min-cust" type="number" placeholder="Min # of Customers/Hour" />
-      <label for="avg-cookie-sale">Average # Cookies per Order</label>
-      <input id="avg-cookie-sale" type="number" placeholder="Average # of Cookies/Order" />
+      <label for="avg-cookie-sale">Avg</label>
+      <input id="avg-cookie-sale" type="number" step="0.1" placeholder="Avg # of Cookies/Order" />
+      <button type="submit">Submit</button>
     </fieldset>
   </form>
   <div class="cards">
