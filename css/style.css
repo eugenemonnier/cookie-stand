@@ -119,3 +119,6 @@ strong {
   font-family: 'Rancho', cursive;
   font-size: medium;
 }
+td {
+  max-width: 100px;
+}
