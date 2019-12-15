@@ -185,6 +185,9 @@ if(window.location.pathname.endsWith('sales.html')) {
   for(i = 0; i < cookieStandLocation.length; i++) {
     // debugger;
     var city = cookieStandLocation[i].locationForAddress();
+    var newBlankLine = document.createElement('br');
+    newBlankLine.textContent = ' ';
+    mainLocationsHolder.appendChild(newBlankLine);
     var newLocLine = document.createElement('li');
     newLocLine.textContent = `${cookieStandLocation[i].location}: ${hoursOfDay[0]} - ${closingHour}`;
     mainLocationsHolder.appendChild(newLocLine);
@@ -195,8 +198,5 @@ if(window.location.pathname.endsWith('sales.html')) {
     var newPhoneLine = document.createElement('li');
     newPhoneLine.textContent = cookieStandLocation[i].phoneNumber;
     mainLocationsHolder.appendChild(newPhoneLine);
-    var newBlankLine = document.createElement('br');
-    newBlankLine.textContent = ' ';
-    mainLocationsHolder.appendChild(newBlankLine);
   }
 }
