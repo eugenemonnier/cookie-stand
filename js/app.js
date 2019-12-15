@@ -4,7 +4,6 @@
 var hoursOfDay = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm',
   '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 var closingHour = '8:00pm';
-// var hourlyCookie = [];
 
 // Buiilds each location object and puts into cookieStandLocation array
 var seattle = new CookieStand('SEATTLE', 25, 65, 6.3, '137 15th Ave E', 'WA', 98112, '(206) 858-6957');
@@ -51,13 +50,13 @@ CookieStand.prototype.cookieGen = function() {
 
 // Method to calculate how many employees are needed per hour
 CookieStand.prototype.employeeGen = function() {
-  // debugger;
   for (var i = 0; i < hoursOfDay.length; i++) {
     this.employeeCount[i] = Math.ceil(this.hourlyCookie[i] / 20);
   }
   return this.employeeCount;
 };
 
+// Perform initial calculations on objects in cookieStandLocation array
 CookieStand.prototype.initialCalcs = function() {
   for (var i = 0; i < cookieStandLocation.length; i++){
     cookieStandLocation[i].cookieGen();
@@ -88,6 +87,7 @@ function buildHeader(employeeTable) {
   }
 }
 
+// Change location name from all caps to just fist letter capped
 CookieStand.prototype.locationForAddress = function() {
   return this.location.charAt(0) + this.location.slice(1).toLowerCase();
 };
@@ -105,7 +105,7 @@ CookieStand.prototype.buildTable = function(employee) {
   newCell.className += 'font-effect-distressed-wood table-city';
   newCell.textContent = this.location;
   newRow.appendChild(newCell);
-  // Under each location adds cookie sales for each hour
+  // Under each location adds either cookie sales or employee count for each hour dependent on val of arg
   for(var i = 0; i < hoursOfDay.length; i++) {
     newCell = document.createElement('td');
     if (employee === false){
@@ -123,7 +123,7 @@ CookieStand.prototype.buildTable = function(employee) {
   }
 };
 
-// Last row of totals
+// Last row of totals for Sales table
 function buildTotal() {
   var completeTotal = 0;
   var totalTd = document.createElement('td');
@@ -145,20 +145,20 @@ function buildTotal() {
   totalHolder.appendChild(totalTd);
 }
 
+// Inputs from form get added to cookieStandLocation array
 function newLocationSubmitted(event) {
   event.preventDefault();
-  // debugger;
   var newLocation = new CookieStand(
-    document.getElementById('location-name').value,
+    document.getElementById('location-name').value.toUpperCase(),
     Number(document.getElementById('max-cust').value),
     Number(document.getElementById('min-cust').value),
     Number(document.getElementById('avg-cookie-sale').value)
   );
   cookieStandLocation.push(newLocation);
+  // Reset form and Total row of Sales Table
   document.getElementById('add-location').reset();
-  // document.getElementById('locations-information').innerHTML = '';
-  // document.getElementById('locations-employees').innerHTML = '';
   document.getElementById('total-cookies').innerHTML = '';
+  // Runs calculations on new location and adds row to Sales Table & Employee Table, then adds on new Total row
   newLocation.cookieGen();
   newLocation.employeeGen();
   newLocation.buildTable(false);
@@ -180,10 +180,10 @@ if(window.location.pathname.endsWith('sales.html')) {
   buildTotal();
   // Event listener for form
   addNewLocation.addEventListener('submit', newLocationSubmitted);
+
   // Creates list of locations for main page
 } else if (window.location.pathname.endsWith('index.html')) {
   for(i = 0; i < cookieStandLocation.length; i++) {
-    // debugger;
     var city = cookieStandLocation[i].locationForAddress();
     var newBlankLine = document.createElement('br');
     newBlankLine.textContent = ' ';

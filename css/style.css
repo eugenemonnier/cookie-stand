@@ -153,6 +153,9 @@ fieldset {
   border: 1px solid #000000;
   border-radius: 5px;
 }
+legend, label {
+  font-weight: bolder;
+}
 input {
   padding: 5px 10px;
   margin: 6px 8px;
