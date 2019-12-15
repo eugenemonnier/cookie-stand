@@ -6,7 +6,9 @@ html {
   display: table;
   margin: auto;
 }
-
+a {
+  text-decoration: none;
+}
 body {
   vertical-align: middle;
   background-color: #b2663b;
