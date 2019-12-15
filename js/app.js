@@ -3,16 +3,16 @@
 // global variables
 var hoursOfDay = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm',
   '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
+var closingHour = '8:00pm';
 // var hourlyCookie = [];
 
 // Buiilds each location object and puts into cookieStandLocation array
-var seattle = new CookieStand('SEATTLE', 25, 65, 6.3, '137 15th Ave E', 'WA', 98112, 2068586957);
-var newYork = new CookieStand('NEW YORK', 3, 24, 1.2, '167 W 74th St', 'NY', 10023, 9174643769);
-var losAngeles = new CookieStand('LOS ANGELES', 11, 38, 3.7, '5466 Wilshire Blvd', 'CA', 90036, 3236349800);
-var miami = new CookieStand('MIAMI', 20, 38, 2.3, '413 15th St', 'FL', 33139, 7865770940);
-var denver = new CookieStand('DENVER', 2, 16, 4.6, '3200 Irving St', 'CO', 80211, 3034557194);
-var portland = new CookieStand('PORTLAND', 23, 52, 7.4, '338 NW 21st Ave', 'OR', 97209, 5032482202);
-var cookieStandLocation = [seattle, newYork, losAngeles, miami, denver, portland];
+var seattle = new CookieStand('SEATTLE', 25, 65, 6.3, '137 15th Ave E', 'WA', 98112, '(206) 858-6957');
+var newYork = new CookieStand('NEW YORK', 3, 24, 1.2, '167 W 74th St', 'NY', 10023, '(917) 464-3769');
+var losAngeles = new CookieStand('LOS ANGELES', 11, 38, 3.7, '5466 Wilshire Blvd', 'CA', 90036, '(323) 634-9800');
+var miami = new CookieStand('MIAMI', 20, 38, 2.3, '413 15th St', 'FL', 33139, '(786) 577-0940');
+var denver = new CookieStand('DENVER', 2, 16, 4.6, '3200 Irving St', 'CO', 80211, '(303) 455-7194');
+var cookieStandLocation = [seattle, newYork, losAngeles, miami, denver];
 
 // targets Element ID to be manipulated
 var headerHolder = document.getElementById('table-header');
@@ -88,6 +88,10 @@ function buildHeader(employeeTable) {
   }
 }
 
+CookieStand.prototype.locationForAddress = function() {
+  return this.location.charAt(0) + this.location.slice(1).toLowerCase();
+};
+
 // Create list of locations
 CookieStand.prototype.buildTable = function(employee) {
   var newRow = document.createElement('tr');
@@ -141,12 +145,6 @@ function buildTotal() {
   totalHolder.appendChild(totalTd);
 }
 
-
-
-
-// Event listener for form
-addNewLocation.addEventListener('submit', newLocationSubmitted);
-
 function newLocationSubmitted(event) {
   event.preventDefault();
   // debugger;
@@ -180,12 +178,25 @@ if(window.location.pathname.endsWith('sales.html')) {
     cookieStandLocation[i].buildTable(true);
   }
   buildTotal();
-
+  // Event listener for form
+  addNewLocation.addEventListener('submit', newLocationSubmitted);
   // Creates list of locations for main page
 } else if (window.location.pathname.endsWith('index.html')) {
   for(i = 0; i < cookieStandLocation.length; i++) {
-    var newLine = document.createElement('li');
-    newLine.textContent = `${cookieStandLocation[i].location}: ${hoursOfDay[0]} - ${hoursOfDay[13]}`;
-    mainLocationsHolder.appendChild(newLine);
+    // debugger;
+    var city = cookieStandLocation[i].locationForAddress();
+    var newBlankLine = document.createElement('br');
+    newBlankLine.textContent = ' ';
+    mainLocationsHolder.appendChild(newBlankLine);
+    var newLocLine = document.createElement('li');
+    newLocLine.textContent = `${cookieStandLocation[i].location}: ${hoursOfDay[0]} - ${closingHour}`;
+    mainLocationsHolder.appendChild(newLocLine);
+    var newAddrLine = document.createElement('li');
+    newAddrLine.textContent = `${cookieStandLocation[i].address}, ${city}, ${cookieStandLocation[i].state} 
+    ${cookieStandLocation[i].zipCode}`;
+    mainLocationsHolder.appendChild(newAddrLine);
+    var newPhoneLine = document.createElement('li');
+    newPhoneLine.textContent = cookieStandLocation[i].phoneNumber;
+    mainLocationsHolder.appendChild(newPhoneLine);
   }
 }
